@@ -11,6 +11,8 @@ import Collection from "./pages/Collection";
 import CategoryCollection from "./pages/CategoryCollection";
 import ProductDetails from "./pages/ProductDetails";
 
+import About from "./pages/About";
+
 function App() {
 
   const [success, changeSuccessState] = useState(false);
@@ -28,6 +30,7 @@ function App() {
         <Route path="/collection/:category/:id" element={<ProductDetails />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
+        <Route path="/About" element={<About />} />
 
         {/* Auth Pages */}
         <Route
