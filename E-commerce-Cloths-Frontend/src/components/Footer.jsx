@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { FaInstagram, FaTwitter, FaFacebookF, FaYoutube } from "react-icons/fa";
 
 const Footer = () => {
@@ -29,7 +30,9 @@ const Footer = () => {
             <li className="hover:text-tertiary cursor-pointer transition">Home</li>
             <li className="hover:text-tertiary cursor-pointer transition">Best Sellers</li>
             <li className="hover:text-tertiary cursor-pointer transition">Offers & Deals</li>
-            <li className="hover:text-tertiary cursor-pointer transition">Contact Us</li>
+            <li className="hover:text-tertiary cursor-pointer transition">
+                <Link to="/about">About Us</Link>
+            </li>
             <li className="hover:text-tertiary cursor-pointer transition">FAQs</li>
           </ul>
         </div>
