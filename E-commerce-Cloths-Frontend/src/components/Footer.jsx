@@ -27,7 +27,9 @@ const Footer = () => {
           <h3 className="bold-18 mb-4">Quick Links</h3>
 
           <ul className="flex flex-col gap-2 text-gray-30">
-            <li className="hover:text-tertiary cursor-pointer transition">Home</li>
+            <li className="hover:text-tertiary cursor-pointer transition">
+              <Link to="/">Home</Link>
+            </li>
             <li className="hover:text-tertiary cursor-pointer transition">Best Sellers</li>
             <li className="hover:text-tertiary cursor-pointer transition">Offers & Deals</li>
             <li className="hover:text-tertiary cursor-pointer transition">

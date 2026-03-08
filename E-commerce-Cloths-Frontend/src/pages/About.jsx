@@ -16,14 +16,14 @@ const About = () => {
       </section>
 
 
-      <section>
+      <section className="mb-16">
         <h2 className="bold-32 mb-6">Meet the Team</h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
             {teamMembers.map((member) => (
             <div
                 key={member.id}
-                className="bg-white p-6 rounded-lg shadow hover:shadow-lg transition text-center"
+                className="bg-white p-6 rounded-lg shadow hover:-translate-y-1 hover:shadow-xl transition"
             >
                 <h3 className="bold-18">{member.name}</h3>
                 <p className="bold-15">Contribution:</p>
@@ -33,6 +33,18 @@ const About = () => {
 
         </div>
       </section>
+
+      <section className="flex justify-center gap-10 mb-16 text-center">
+        <div>
+            <h3 className="bold-24">4</h3>
+            <p className="text-gray-30">Team Members</p>
+        </div>
+
+        <div>
+            <h3 className="bold-24">10+</h3>
+            <p className="text-gray-30">Features Built</p>
+        </div>
+    </section>
 
     </div>
   );
