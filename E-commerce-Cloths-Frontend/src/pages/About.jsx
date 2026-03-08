@@ -1,8 +1,9 @@
+import { teamMembers } from "../assets/teamData";
+
 const About = () => {
   return (
     <div className="max-padd-container py-16">
 
-      {/* About Website Section */}
       <section className="mb-16">
         <h2 className="bold-32 mb-4">About Our Store</h2>
 
@@ -15,21 +16,20 @@ const About = () => {
       </section>
 
 
-      {/* Team Section */}
       <section>
         <h2 className="bold-32 mb-6">Meet the Team</h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-
-          <div className="bg-white p-6 rounded-lg shadow">
-            <h3 className="bold-18">Member Name</h3>
-            <p className="text-gray-30">Role / Contribution</p>
-          </div>
-
-          <div className="bg-white p-6 rounded-lg shadow">
-            <h3 className="bold-18">Member Name</h3>
-            <p className="text-gray-30">Role / Contribution</p>
-          </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+            {teamMembers.map((member) => (
+            <div
+                key={member.id}
+                className="bg-white p-6 rounded-lg shadow hover:shadow-lg transition text-center"
+            >
+                <h3 className="bold-18">{member.name}</h3>
+                <p className="bold-15">Contribution:</p>
+                <p className="text-gray-30">{member.Contribution}</p>
+            </div>
+        ))}
 
         </div>
       </section>
