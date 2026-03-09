@@ -12,6 +12,8 @@ import CategoryCollection from "./pages/CategoryCollection";
 import ProductDetails from "./pages/ProductDetails";
 import Profile from "./pages/Profile";
 
+import About from "./pages/About";
+
 function App() {
 
   const [success, changeSuccessState] = useState(false);
@@ -23,34 +25,38 @@ function App() {
       <Header />
 
       <Routes>
-  <Route path="/" element={<Home />} />
-  <Route path="/collection" element={<Collection />} />
-  <Route path="/collection/:category" element={<CategoryCollection />} />
-  <Route path="/collection/:category/:id" element={<ProductDetails />} />
-  <Route path="/profile" element={<Profile />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/collection" element={<Collection />} />
+        <Route path="/collection/:category" element={<CategoryCollection />} />
+        <Route path="/collection/:category/:id" element={<ProductDetails />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/About" element={<About />} />
 
-  <Route
-    path="/login"
-    element={
-      <Login
-        success={success}
-        changeSuccessState={changeSuccessState}
-        changeAuthPage={changeAuthPage}
-      />
-    }
-  />
+        {/* Auth Pages */}
+        <Route
+          path="/login"
+          element={
+            <Login
+              success={success}
+              changeSuccessState={changeSuccessState}
+              changeAuthPage={changeAuthPage}
+            />
+          }
+        />
 
-  <Route
-    path="/signup"
-    element={
-      <SignUp
-        success={success}
-        changeSuccessState={changeSuccessState}
-        changeAuthPage={changeAuthPage}
-      />
-    }
-  />
-</Routes>
+        <Route
+          path="/signup"
+          element={
+            <SignUp
+              success={success}
+              changeSuccessState={changeSuccessState}
+              changeAuthPage={changeAuthPage}
+            />
+          }
+        />
+
+      </Routes>
 
       <Footer />
 
