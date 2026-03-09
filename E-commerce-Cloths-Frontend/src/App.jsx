@@ -11,7 +11,6 @@ import Collection from "./pages/Collection";
 import CategoryCollection from "./pages/CategoryCollection";
 import ProductDetails from "./pages/ProductDetails";
 import Profile from "./pages/Profile";
-
 import About from "./pages/About";
 
 function App() {
@@ -21,19 +20,23 @@ function App() {
 
   const location = useLocation();
 
-  const curr_loc = location.pathname == "/login" || location.pathname == "/signup" ;
+  const curr_loc =
+    location.pathname === "/login" || location.pathname === "/signup";
 
   return (
     <main className="overflow-hidden text-tertiary">
 
-      {!curr_loc && <Header/> }
+      {!curr_loc && <Header />}
 
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/collection" element={<Collection />} />
         <Route path="/collection/:category" element={<CategoryCollection />} />
         <Route path="/collection/:category/:id" element={<ProductDetails />} />
-        <Route path="/About" element={<About />} />
+        <Route path="/about" element={<About />} />
+
+        {/* Profile Page */}
+        <Route path="/profile" element={<Profile />} />
 
         {/* Auth Pages */}
         <Route
@@ -57,10 +60,9 @@ function App() {
             />
           }
         />
-
       </Routes>
 
-      {!curr_loc && <Footer /> }
+      {!curr_loc && <Footer />}
 
     </main>
   );
