@@ -10,6 +10,7 @@ import Home from "./pages/Home";
 import Collection from "./pages/Collection";
 import CategoryCollection from "./pages/CategoryCollection";
 import ProductDetails from "./pages/ProductDetails";
+import Profile from "./pages/Profile";
 
 import About from "./pages/About";
 
