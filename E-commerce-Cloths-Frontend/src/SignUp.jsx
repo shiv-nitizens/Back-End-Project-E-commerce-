@@ -37,31 +37,40 @@ function SignUp(props){
       return (
         <>
           {confirm ? (
-            <div className="h-screen flex justify-center items-center bg-black transition-all duration-300">
-        <div className="flex w-[380px] flex-col items-center gap-6 opacity-100 scale-100 transition-all duration-300">
+            <div className="h-screen flex justify-center items-center bg-white transition-all duration-300">
+              <div className="flex w-[380px] flex-col items-center gap-6 opacity-100 scale-100 transition-all duration-300">
           
-          <div className="w-20 h-20 flex items-center justify-center rounded-full bg-emerald-500 text-black text-3xl font-bold">
-            ✓
-          </div>
+                <div className="w-20 h-20 flex items-center justify-center rounded-full bg-emerald-500 text-white text-3xl font-bold">
+                  ✓
+                </div>
     
-          <h2 className="text-2xl text-white font-semibold">
-            SignIn Successful
-          </h2>
+                <h2 className="text-2xl text-black font-semibold">
+                  SignUp Successful
+                </h2>
     
-          <p className="text-zinc-400 text-sm">
-            Hello
-          </p>
+                <p className="text-zinc-500 text-sm">
+                  Hello
+                </p>
     
-        </div>
-      </div>
+              </div>
+            </div>
           ) : (
-            <div className="h-screen flex justify-center items-center bg-black">
+            <div className="relative w-full h-screen bg-white flex justify-center items-center">
+
+              {/* Back button */}
+              <button
+                onClick={() => navigate("/")}
+                className="absolute top-4 left-4 w-12 h-12 flex items-center justify-center rounded-full border border-zinc-400 hover:bg-zinc-200 transition active:scale-95 text-2xl"
+              >
+                ↼
+              </button>
+
               <form
                 onSubmit={checkCredentials}
                 className="flex w-[380px] flex-col gap-7"
               >
-                <h1 className="text-3xl text-white font-bold tracking-wide mb-5">
-                Sign In
+                <h1 className="text-3xl text-black font-bold tracking-wide mb-5">
+                Sign Up
                 </h1>
     
                 <input
@@ -71,7 +80,7 @@ function SignUp(props){
                   value={email}
                   required
                   onChange={e => changeEmail(e.target.value)}
-                  className="w-full px-4 py-3 bg-zinc-950 border border-zinc-700 text-zinc-200 placeholder-zinc-500 focus:outline-none focus:border-emerald-400 focus:ring-2 focus:ring-emerald-400 transition-all duration-200 rounded-md"
+                  className="w-full px-4 py-3 bg-white border border-zinc-300 text-black placeholder-zinc-500 focus:outline-none focus:border-emerald-400 focus:ring-2 focus:ring-emerald-400 transition-all duration-200 rounded-md"
                 />
     
                 <input
@@ -81,30 +90,31 @@ function SignUp(props){
                   value={password}
                   required
                   onChange={e => changePassword(e.target.value)}
-                  className="w-full px-4 py-3 bg-zinc-950 border border-zinc-700 text-zinc-200 placeholder-zinc-500 focus:outline-none focus:border-emerald-400 focus:ring-2 focus:ring-emerald-400 transition-all duration-200 rounded-md"
+                  className="w-full px-4 py-3 bg-white border border-zinc-300 text-black placeholder-zinc-500 focus:outline-none focus:border-emerald-400 focus:ring-2 focus:ring-emerald-400 transition-all duration-200 rounded-md"
                 />
     
                 <button
                   type="submit"
                   disabled={loader}
-                  className="w-[60%] self-center py-3 bg-emerald-500 text-black rounded-md transition-all duration-200 hover:bg-emerald-400 active:scale-95 disabled:opacity-60 mt-3"
+                  className="w-[60%] self-center py-3 bg-emerald-500 text-white rounded-md transition-all duration-200 hover:bg-emerald-400 active:scale-95 disabled:opacity-60 mt-3"
                 >
                   {loader ? "Signing in..." : "SignIn"}
                 </button>
 
                 <button 
-                className="text-white"
+                className="text-black"
                 type="button"
                 onClick={()=>navigate("/login")}
                 >
-              Already have an account ?
-              <br />
-              Login
-            </button>
+                  Already have an account ?
+                  <br />
+                  Login
+                </button>
+
               </form>
             </div>
           )}
-          </>
+        </>
       )
 }
 

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 
 import Login from "./Login";
 import SignUp from "./SignUp";
@@ -19,18 +19,20 @@ function App() {
   const [success, changeSuccessState] = useState(false);
   const [authPage, changeAuthPage] = useState("login");
 
+  const location = useLocation();
+
+  const curr_loc = location.pathname == "/login" || location.pathname == "/signup" ;
+
   return (
     <main className="overflow-hidden text-tertiary">
 
-      <Header />
+      {!curr_loc && <Header/> }
 
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/collection" element={<Collection />} />
         <Route path="/collection/:category" element={<CategoryCollection />} />
         <Route path="/collection/:category/:id" element={<ProductDetails />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<SignUp />} />
         <Route path="/About" element={<About />} />
 
         {/* Auth Pages */}
@@ -58,7 +60,7 @@ function App() {
 
       </Routes>
 
-      <Footer />
+      {!curr_loc && <Footer /> }
 
     </main>
   );
