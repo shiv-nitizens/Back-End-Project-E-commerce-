@@ -31,22 +31,21 @@ const About = () => {
 
                 <div className="absolute inset-0 bg-gray-900 text-white flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition z-20">
 
-        <h4 className="font-semibold mb-3">Socials</h4>
+                    <h4 className="font-semibold mb-3">Socials</h4>
 
-        <div className="flex gap-4 text-sm">
-          {member.github && (
-            <a
-              href={member.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-gray-30 transition"
-            >
-              GitHub
-            </a>
-          )}
-          </div>
-
-      </div>
+                    <div className="flex gap-4 text-sm">
+                        {member.github && (
+                            <a
+                                href={member.github}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:text-gray-30 transition"
+                                >
+                                GitHub
+                            </a>
+                        )}
+                    </div>
+                </div>
             </div>
         ))}
 
