@@ -10,6 +10,7 @@ import Home from "./pages/Home";
 import Collection from "./pages/Collection";
 import CategoryCollection from "./pages/CategoryCollection";
 import ProductDetails from "./pages/ProductDetails";
+import Profile from "./pages/Profile";
 
 function App() {
 
@@ -22,37 +23,34 @@ function App() {
       <Header />
 
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/collection" element={<Collection />} />
-        <Route path="/collection/:category" element={<CategoryCollection />} />
-        <Route path="/collection/:category/:id" element={<ProductDetails />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<SignUp />} />
+  <Route path="/" element={<Home />} />
+  <Route path="/collection" element={<Collection />} />
+  <Route path="/collection/:category" element={<CategoryCollection />} />
+  <Route path="/collection/:category/:id" element={<ProductDetails />} />
+  <Route path="/profile" element={<Profile />} />
 
-        {/* Auth Pages */}
-        <Route
-          path="/login"
-          element={
-            <Login
-              success={success}
-              changeSuccessState={changeSuccessState}
-              changeAuthPage={changeAuthPage}
-            />
-          }
-        />
+  <Route
+    path="/login"
+    element={
+      <Login
+        success={success}
+        changeSuccessState={changeSuccessState}
+        changeAuthPage={changeAuthPage}
+      />
+    }
+  />
 
-        <Route
-          path="/signup"
-          element={
-            <SignUp
-              success={success}
-              changeSuccessState={changeSuccessState}
-              changeAuthPage={changeAuthPage}
-            />
-          }
-        />
-
-      </Routes>
+  <Route
+    path="/signup"
+    element={
+      <SignUp
+        success={success}
+        changeSuccessState={changeSuccessState}
+        changeAuthPage={changeAuthPage}
+      />
+    }
+  />
+</Routes>
 
       <Footer />
 

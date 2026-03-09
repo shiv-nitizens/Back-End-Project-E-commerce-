@@ -11,29 +11,40 @@ app.get("/",(req,res)=>{
     res.send("hello bitch");
 })
 
-app.post("/login",async (req,res)=>{
-    const  {email , password} = req.body;
+ 
+app.post("/login", async (req, res) => {
+    const { email, password } = req.body;
 
     let conn;
-    try{
+
+    try {
         conn = await getConnection();
-        const row = await conn.query(
-            "SELECT * FROM users WHERE email= ?",[email]
+
+        const rows = await conn.query(
+            "SELECT * FROM users WHERE email = ?",
+            [email]
         );
-        if(row[0].password === password){
-            res.status(200).json(row);
-        }else{
-            res.status(401).json("enter correct cedentials");
+
+        if (rows.length === 0) {
+            return res.status(404).json({ message: "User not found" });
         }
-    }catch(err){
+
+        const user = rows[0];
+
+        if (user.password === password) {
+            res.status(200).json(user);
+        } else {
+            res.status(401).json({ message: "Incorrect credentials" });
+        }
+
+    } catch (err) {
         console.log(err);
-        res.status(500).json({error : "Database error"});
-    }finally{
-        if(conn){
-            await conn.end();
-        }
+        res.status(500).json({ error: "Database error" });
+
+    } finally {
+        if (conn) await conn.end();
     }
-})
+});
 
 app.post("/signup",async (req,res)=>{
     const {email , password} = req.body;
@@ -63,6 +74,34 @@ app.post("/signup",async (req,res)=>{
         }
     }
 })
+
+app.get("/profile/:id", async (req, res) => {
+    const id = req.params.id;
+
+    let conn;
+
+    try {
+        conn = await getConnection();
+
+        const rows = await conn.query(
+            "SELECT id, email FROM users WHERE id = ?",
+            [id]
+        );
+
+        if (rows.length === 0) {
+            return res.status(404).json({ message: "User not found" });
+        }
+
+        res.json(rows[0]);
+
+    } catch (err) {
+        console.log(err);
+        res.status(500).json({ error: "Database error" });
+
+    } finally {
+        if (conn) await conn.end();
+    }
+});
 
 app.listen(Port,()=>{
     console.log("Server is running");
